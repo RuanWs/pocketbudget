@@ -363,11 +363,3 @@ A arquitetura adotada pelo PocketBudget oferece algumas vantagens:
 * GitHub
 
 ---
-
-## Status do Projeto
-
-**Status:** Em desenvolvimento.
-
-O PocketBudget atualmente possui duas aplicações independentes, Web (Angular) e Mobile (Kotlin), que implementam o gerenciamento de finanças pessoais utilizando armazenamento local e funcionamento offline. Ambas as aplicações foram migradas de suas stacks originais (React/Vite e React Native/Expo) para atender aos requisitos atualizados do projeto, preservando as funcionalidades e o comportamento definidos inicialmente.
-
----
