@@ -1,3 +1,4 @@
+```latex
 \documentclass[12pt,a4paper]{article}
 
 % ================= PACOTES =================
@@ -31,7 +32,7 @@
 \begin{document}
 
 % ------------------------------------------------------------------
-% CAPA
+% 1. CAPA
 % ------------------------------------------------------------------
 \begin{titlepage}
     \centering
@@ -45,7 +46,7 @@
 
     {\Huge \textbf{PocketBudget}}\par
     \vspace{0.5cm}
-    {\Large Proposta de Projeto e Documentação Técnica Inicial}\par
+    {\Large Proposta de Projeto e Documentação Técnica}\par
 
     \vspace{4cm}
 
@@ -53,14 +54,18 @@
     {\large [NOME DO ALUNO 2]}\par
     {\large [NOME DO ALUNO 3]}\par
     {\large [NOME DO ALUNO 4]}\par
+    {\large [NOME DO ALUNO 5]}\par
+    {\large [NOME DO ALUNO 6]}\par
+    {\large [NOME DO ALUNO 7]}\par
+    {\large [NOME DO ALUNO 8]}\par
 
     \vfill
 
     {\large Professor(a): [NOME DO PROFESSOR]}\par
     \vspace{0.5cm}
-    {\large Ano acadêmico: [ANO ACADÊMICO]}\par
+    {\large Ano acadêmico: 2026}\par
     \vspace{0.5cm}
-    {\large [CIDADE], [DATA]}\par
+    {\large [CIDADE], 2026}\par
 
     \vspace{1cm}
 \end{titlepage}
@@ -73,15 +78,15 @@
 % ------------------------------------------------------------------
 \section{Introdução}
 
-A organização financeira pessoal é um aspecto fundamental da vida cotidiana, influenciando diretamente a capacidade de planejamento, poupança e tomada de decisões conscientes sobre consumo. Apesar de sua importância, muitas pessoas encontram dificuldade em manter um registro consistente de suas receitas e despesas, seja pela falta de ferramentas adequadas, seja pela complexidade de soluções existentes no mercado.
+A organização financeira pessoal é um aspecto importante da vida cotidiana, pois influencia diretamente o planejamento, o controle de gastos e a tomada de decisões relacionadas ao uso dos recursos financeiros. Apesar dessa importância, manter um registro consistente de receitas e despesas pode ser uma tarefa pouco prática quando realizada por meio de anotações manuais ou ferramentas genéricas.
 
-O acompanhamento diário de transações financeiras exige praticidade e acessibilidade. Ferramentas que dependem de processos manuais, como anotações em papel ou preenchimento de planilhas genéricas, tendem a ser abandonadas ao longo do tempo devido ao esforço repetitivo que exigem e à ausência de retorno visual imediato sobre a situação financeira do usuário.
+O acompanhamento das transações financeiras exige uma forma de registro que seja simples, rápida e acessível. Quando o processo apresenta muitas etapas ou não fornece uma visualização clara das informações registradas, pode ocorrer o abandono do hábito de acompanhamento financeiro.
 
-Nesse contexto, surge a proposta do \textbf{PocketBudget}, uma aplicação de gestão financeira pessoal cujo objetivo é oferecer uma forma simples, rápida e visualmente clara de registrar receitas e despesas, calcular saldos automaticamente e permitir a busca e filtragem de transações. O projeto contempla o desenvolvimento de uma interface web e, complementarmente, de uma interface mobile, de modo que o usuário possa registrar suas transações financeiras no dispositivo mais conveniente em cada momento.
+Nesse contexto, surge o \textbf{PocketBudget}, uma aplicação de gestão financeira pessoal desenvolvida com o objetivo de facilitar o registro e a visualização de receitas e despesas. A aplicação permite cadastrar transações, consultar os valores financeiros registrados, calcular automaticamente o saldo líquido, pesquisar transações e filtrá-las por categoria.
 
-A disponibilização de interfaces web e mobile é motivada pela necessidade de flexibilidade de uso: enquanto a versão web pode ser mais adequada para uma análise mais detalhada em telas maiores, a versão mobile favorece o registro imediato de transações no momento em que ocorrem, como uma compra ou um pagamento, aumentando a probabilidade de que o usuário mantenha o hábito de registro atualizado.
+O projeto é composto por duas interfaces: uma aplicação web e uma aplicação mobile nativa para Android. A versão web foi desenvolvida utilizando Angular, enquanto a versão mobile utiliza Kotlin e Jetpack Compose. Ambas possuem mecanismos próprios de persistência local, permitindo que os dados sejam armazenados no dispositivo utilizado pelo usuário sem depender de um servidor externo.
 
-Do ponto de vista acadêmico, o desenvolvimento do PocketBudget também constitui uma oportunidade de aplicação prática de conceitos de engenharia de software, arquitetura de componentes, persistência local de dados e boas práticas de desenvolvimento frontend moderno.
+Além de sua finalidade prática, o desenvolvimento do PocketBudget proporciona a aplicação de conceitos relacionados à engenharia de software, desenvolvimento de interfaces, componentização, persistência local, organização de código, controle de versão e documentação técnica.
 
 % ------------------------------------------------------------------
 % 3. PROBLEMA
@@ -89,15 +94,15 @@ Do ponto de vista acadêmico, o desenvolvimento do PocketBudget também constitu
 \section{Problema}
 \label{sec:problema-ref}
 
-O problema central que o PocketBudget busca endereçar é a dificuldade prática de registrar e acompanhar transações financeiras pessoais de forma contínua e organizada.
+O problema central abordado pelo PocketBudget é a dificuldade de registrar e acompanhar transações financeiras pessoais de maneira simples e organizada.
 
-Abordagens manuais, como o uso de planilhas eletrônicas genéricas ou anotações em papel, apresentam limitações relevantes para esse propósito. Planilhas, embora flexíveis, normalmente não foram desenhadas especificamente para o registro rápido de transações do dia a dia: exigem que o usuário abra o arquivo, localize a linha correta, insira manualmente fórmulas ou valores e, frequentemente, calcule totais de forma manual ou semiautomática. Esse processo introduz atrito no momento do registro, o que pode levar ao esquecimento ou ao acúmulo de lançamentos pendentes.
+Abordagens manuais, como anotações em papel ou planilhas eletrônicas genéricas, podem apresentar atrito durante o registro de informações. O usuário precisa inserir os dados manualmente e posteriormente organizar ou interpretar essas informações para obter uma visão geral de sua situação financeira.
 
-Da mesma forma, anotações informais, sejam em papel ou em aplicativos genéricos de notas, não oferecem estrutura de dados adequada para operações como cálculo automático de saldo, filtragem por categoria ou busca por descrição, tornando a análise posterior das informações registradas mais trabalhosa.
+Aplicativos genéricos de anotações também não possuem necessariamente uma estrutura adequada para operações específicas de controle financeiro, como cálculo automático de saldo, separação entre receitas e despesas, filtragem por categoria e busca por descrição.
 
-Não se pretende, neste documento, apresentar dados estatísticos sobre a adoção dessas práticas ou sobre a frequência de abandono de ferramentas financeiras, uma vez que tais afirmações exigiriam fontes verificáveis não disponíveis neste contexto de projeto acadêmico. O que se observa, de forma conceitual, é que a ausência de uma ferramenta dedicada, simples e acessível tende a dificultar a manutenção do hábito de registro financeiro.
+O PocketBudget busca reduzir esse atrito por meio de uma interface dedicada ao controle financeiro pessoal. A aplicação concentra as operações essenciais em uma única interface, permitindo registrar transações e visualizar automaticamente os resultados financeiros derivados dos dados cadastrados.
 
-O PocketBudget propõe-se a reduzir esse atrito por meio de uma interface dedicada, com formulários simples, cálculo automático de totais e mecanismos de busca e filtragem, disponível tanto em ambiente web quanto mobile.
+O projeto possui como princípio manter uma solução simples e compatível com o escopo acadêmico proposto, sem introduzir dependências como backend, autenticação ou banco de dados remoto.
 
 % ------------------------------------------------------------------
 % 4. OBJETIVOS
@@ -106,21 +111,26 @@ O PocketBudget propõe-se a reduzir esse atrito por meio de uma interface dedica
 
 \subsection{Objetivo Geral}
 
-Desenvolver uma aplicação de gestão financeira pessoal, denominada PocketBudget, composta por uma interface web e uma interface mobile, que permita ao usuário registrar receitas e despesas, visualizar automaticamente seus totais financeiros e localizar transações específicas por meio de busca e filtragem, com persistência local de dados.
+Desenvolver uma aplicação de gestão financeira pessoal, denominada PocketBudget, composta por uma interface web e uma interface mobile nativa para Android, permitindo ao usuário registrar receitas e despesas, visualizar seus totais financeiros e localizar transações por meio de busca e filtragem, com persistência local dos dados.
 
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-    \item Desenvolver uma interface web responsiva utilizando React, Vite e Tailwind CSS.
-    \item Desenvolver uma interface mobile utilizando React Native.
-    \item Permitir que o usuário registre transações de receita e despesa.
+    \item Desenvolver uma interface web utilizando Angular, TypeScript, HTML e SCSS.
+    \item Desenvolver uma aplicação mobile nativa para Android utilizando Kotlin e Jetpack Compose.
+    \item Permitir o registro de transações de receita e despesa.
     \item Permitir a exclusão de transações registradas.
-    \item Calcular automaticamente o total de receitas, o total de despesas e o saldo líquido.
-    \item Oferecer funcionalidade de busca de transações por descrição.
-    \item Oferecer funcionalidade de filtragem de transações por categoria.
-    \item Persistir os dados localmente, sem dependência de backend ou serviços externos.
-    \item Aplicar práticas de componentização e desenvolvimento frontend moderno, com separação clara de responsabilidades entre componentes.
-    \item Praticar conceitos de desenvolvimento de software, controle de versão com Git/GitHub e documentação técnica formal.
+    \item Calcular automaticamente o total de receitas.
+    \item Calcular automaticamente o total de despesas.
+    \item Calcular e exibir o saldo líquido.
+    \item Permitir a busca de transações por descrição.
+    \item Permitir a filtragem de transações por categoria.
+    \item Persistir os dados localmente em cada plataforma.
+    \item Utilizar LocalStorage na aplicação web.
+    \item Utilizar SharedPreferences com Gson na aplicação mobile.
+    \item Aplicar princípios de componentização e separação de responsabilidades.
+    \item Utilizar Git e GitHub para controle de versão e colaboração.
+    \item Produzir documentação técnica e acadêmica do projeto.
 \end{itemize}
 
 % ------------------------------------------------------------------
@@ -128,23 +138,31 @@ Desenvolver uma aplicação de gestão financeira pessoal, denominada PocketBudg
 % ------------------------------------------------------------------
 \section{Metodologia}
 
-O desenvolvimento do PocketBudget segue uma metodologia estruturada em etapas sequenciais, com possibilidade de retorno a etapas anteriores conforme necessário, característica comum a processos iterativos de desenvolvimento de software.
+O desenvolvimento do PocketBudget foi organizado em etapas relacionadas à definição do problema, levantamento de requisitos, planejamento da interface, definição da arquitetura, implementação e testes.
+
+As principais etapas do desenvolvimento são apresentadas a seguir:
 
 \begin{enumerate}
-    \item \textbf{Identificação do problema}: definição do problema de organização financeira pessoal que motiva o projeto, conforme discutido na Seção~\ref{sec:problema-ref}.
-    \item \textbf{Definição de requisitos}: levantamento dos requisitos funcionais e não funcionais que a aplicação deve atender.
-    \item \textbf{Ideação}: discussão sobre possíveis abordagens de solução, funcionalidades prioritárias e escopo do projeto.
-    \item \textbf{Wireframing}: elaboração de representações visuais simplificadas das telas da aplicação, para orientar o desenvolvimento da interface antes da implementação.
-    \item \textbf{Prototipação}: desenvolvimento de versões iniciais navegáveis ou funcionais de partes da aplicação, permitindo validação antecipada de decisões de interface.
-    \item \textbf{Definição de arquitetura}: escolha das tecnologias, definição da estrutura de componentes e do modelo de dados utilizado pela aplicação.
-    \item \textbf{Implementação}: desenvolvimento do código-fonte da aplicação web e, posteriormente, da aplicação mobile, seguindo a arquitetura definida.
-    \item \textbf{Testes}: verificação funcional das regras de negócio, validação de formulários e comportamento de persistência de dados.
-    \item \textbf{Documentação}: produção de documentação técnica do projeto, incluindo este documento e demais materiais complementares.
+    \item \textbf{Identificação do problema}: definição da dificuldade relacionada ao registro e acompanhamento de transações financeiras pessoais.
+    
+    \item \textbf{Definição de requisitos}: identificação das funcionalidades e características necessárias para atender ao objetivo do projeto.
+    
+    \item \textbf{Ideação}: definição das funcionalidades principais e estabelecimento do escopo da aplicação.
+    
+    \item \textbf{Wireframing}: elaboração de representações simplificadas das interfaces para auxiliar na definição da organização visual das aplicações.
+    
+    \item \textbf{Definição da arquitetura}: escolha das tecnologias e organização da estrutura das aplicações web e mobile.
+    
+    \item \textbf{Implementação}: desenvolvimento das funcionalidades da aplicação web e da aplicação mobile.
+    
+    \item \textbf{Persistência local}: implementação dos mecanismos de armazenamento necessários para manter as transações após o encerramento das aplicações.
+    
+    \item \textbf{Testes}: verificação do funcionamento das principais funcionalidades e das regras de negócio.
+    
+    \item \textbf{Documentação}: organização das informações técnicas e acadêmicas relacionadas ao projeto.
 \end{enumerate}
 
-Conceitos de \textit{design thinking} são aplicados principalmente nas etapas de ideação e wireframing, com foco em compreender as necessidades do usuário final antes da definição de soluções técnicas específicas. Essa abordagem busca priorizar a simplicidade de uso da aplicação, evitando a introdução de funcionalidades desnecessárias que aumentem a complexidade sem agregar valor direto ao usuário.
-
-É importante ressaltar que, no estágio atual do projeto, algumas dessas etapas encontram-se concluídas, enquanto outras permanecem planejadas, conforme detalhado ao longo deste documento.
+A metodologia prioriza a implementação incremental das funcionalidades, permitindo que diferentes partes do sistema sejam desenvolvidas e verificadas ao longo do processo.
 
 % ------------------------------------------------------------------
 % 6. REQUISITOS DO SISTEMA
@@ -161,19 +179,27 @@ Conceitos de \textit{design thinking} são aplicados principalmente nas etapas d
     \item RF05 -- O sistema deve permitir a filtragem de transações por categoria.
     \item RF06 -- O sistema deve exibir o total de receitas registradas.
     \item RF07 -- O sistema deve exibir o total de despesas registradas.
-    \item RF08 -- O sistema deve exibir o saldo líquido, calculado a partir da diferença entre receitas e despesas.
-    \item RF09 -- O sistema deve persistir os dados das transações localmente, garantindo que permaneçam disponíveis após o fechamento e reabertura da aplicação.
+    \item RF08 -- O sistema deve exibir o saldo líquido.
+    \item RF09 -- O sistema deve persistir os dados das transações localmente.
+    \item RF10 -- O sistema deve permitir a visualização da lista de transações registradas.
 \end{itemize}
 
 \subsection{Requisitos Não Funcionais}
 
 \begin{itemize}
-    \item RNF01 -- \textbf{Responsividade}: a interface web deve se adaptar adequadamente a diferentes tamanhos de tela, incluindo dispositivos móveis e desktops.
-    \item RNF02 -- \textbf{Usabilidade}: a interface deve ser simples e intuitiva, minimizando o número de etapas necessárias para registrar uma transação.
-    \item RNF03 -- \textbf{Manutenibilidade}: o código-fonte deve ser organizado em componentes reutilizáveis e de responsabilidade única, facilitando futuras manutenções.
-    \item RNF04 -- \textbf{Desempenho}: as operações de cálculo de totais, busca e filtragem devem ser executadas de forma eficiente para volumes de dados típicos de uso pessoal.
-    \item RNF05 -- \textbf{Persistência local/offline}: a aplicação deve funcionar sem dependência de conexão com a internet, armazenando os dados localmente no dispositivo do usuário.
-    \item RNF06 -- \textbf{Organização de código}: o projeto deve seguir uma estrutura de diretórios e nomenclatura consistente, facilitando a navegação e compreensão do código por terceiros.
+    \item RNF01 -- \textbf{Responsividade}: a aplicação web deve adaptar sua interface a diferentes tamanhos de tela.
+    
+    \item RNF02 -- \textbf{Usabilidade}: as interfaces devem apresentar organização simples e intuitiva.
+    
+    \item RNF03 -- \textbf{Manutenibilidade}: o código deve ser organizado em componentes e estruturas com responsabilidades bem definidas.
+    
+    \item RNF04 -- \textbf{Desempenho}: as operações de cálculo, busca e filtragem devem apresentar tempo de resposta adequado para o volume de dados esperado.
+    
+    \item RNF05 -- \textbf{Persistência local}: as aplicações devem manter os dados armazenados localmente após o encerramento e reabertura.
+    
+    \item RNF06 -- \textbf{Funcionamento offline}: as funcionalidades principais não devem depender de conexão com a internet ou de um servidor remoto.
+    
+    \item RNF07 -- \textbf{Organização de código}: o projeto deve utilizar uma estrutura de diretórios consistente e facilitar a manutenção do código.
 \end{itemize}
 
 % ------------------------------------------------------------------
@@ -181,51 +207,78 @@ Conceitos de \textit{design thinking} são aplicados principalmente nas etapas d
 % ------------------------------------------------------------------
 \section{Arquitetura do Sistema}
 
+O PocketBudget é composto por duas aplicações independentes, uma aplicação web e uma aplicação mobile nativa para Android. Ambas implementam funcionalidades equivalentes de controle financeiro, utilizando mecanismos de persistência adequados às suas respectivas plataformas.
+
 \subsection{Aplicação Web}
 
-A aplicação web do PocketBudget é construída utilizando as seguintes tecnologias:
+A aplicação web utiliza Angular como principal framework para construção da interface.
+
+Sua organização é baseada em componentes, serviços, modelos e funções auxiliares. Essa estrutura permite separar responsabilidades e facilitar a manutenção do código.
+
+As principais tecnologias utilizadas são:
 
 \begin{itemize}
-    \item \textbf{React}: biblioteca utilizada para a construção da interface de usuário por meio de componentes funcionais e hooks.
-    \item \textbf{Vite}: ferramenta de build e servidor de desenvolvimento, responsável por prover um ambiente de desenvolvimento rápido e um processo de build otimizado para produção.
-    \item \textbf{JavaScript (ES6+)}: linguagem de programação utilizada em toda a lógica da aplicação.
-    \item \textbf{Tailwind CSS}: framework de utilitários CSS utilizado para estilização da interface, permitindo a criação de um layout responsivo de forma consistente.
-    \item \textbf{Componentes React}: a interface é dividida em componentes com responsabilidades específicas, como exibição de resumo financeiro, formulário de transações e listagem de transações.
-    \item \textbf{LocalStorage}: mecanismo do navegador utilizado para persistência local dos dados das transações, sem necessidade de backend.
+    \item \textbf{Angular}: framework utilizado para construção da aplicação web e organização dos componentes da interface.
+    
+    \item \textbf{TypeScript}: linguagem utilizada na implementação da lógica da aplicação.
+    
+    \item \textbf{HTML}: linguagem utilizada para estruturação das interfaces dos componentes.
+    
+    \item \textbf{SCSS}: tecnologia utilizada para estilização das interfaces.
+    
+    \item \textbf{LocalStorage}: mecanismo de armazenamento disponibilizado pelo navegador para persistência local das transações.
+    
+    \item \textbf{Componentes Angular}: utilizados para separar funcionalidades como resumo financeiro, formulário e lista de transações.
+    
+    \item \textbf{Services}: utilizados para centralizar operações relacionadas aos dados das transações.
 \end{itemize}
 
 \subsection{Aplicação Mobile}
 
-A aplicação mobile do PocketBudget está planejada para ser desenvolvida com as seguintes tecnologias:
+A aplicação mobile é desenvolvida como uma aplicação nativa para Android utilizando Kotlin e Jetpack Compose.
+
+A interface utiliza o paradigma declarativo do Jetpack Compose, permitindo que os componentes visuais sejam atualizados de acordo com o estado atual da aplicação.
+
+As principais tecnologias utilizadas são:
 
 \begin{itemize}
-    \item \textbf{React Native}: framework utilizado para o desenvolvimento da interface mobile, permitindo reaproveitamento de conceitos e lógica de negócio semelhantes aos utilizados na aplicação web.
-    \item \textbf{JavaScript}: linguagem de programação utilizada na implementação da lógica da aplicação mobile.
-    \item \textbf{Arquitetura de componentes mobile}: organização da interface mobile em componentes especializados, adequados às particularidades de dispositivos móveis, como áreas seguras de tela (\textit{safe areas}) e comportamento de teclado.
-    \item \textbf{Persistência local mobile}: utilização do mecanismo de armazenamento local apropriado para a plataforma mobile, distinto do LocalStorage utilizado na web.
+    \item \textbf{Kotlin}: linguagem utilizada no desenvolvimento da aplicação Android.
+    
+    \item \textbf{Jetpack Compose}: toolkit utilizado para construção da interface de usuário.
+    
+    \item \textbf{Material 3}: conjunto de componentes e princípios visuais utilizados na construção da interface.
+    
+    \item \textbf{ViewModel}: componente utilizado para manter e organizar o estado relacionado aos dados da aplicação.
+    
+    \item \textbf{SharedPreferences}: mecanismo utilizado para armazenamento local dos dados no dispositivo Android.
+    
+    \item \textbf{Gson}: biblioteca utilizada para serialização e desserialização dos dados das transações.
 \end{itemize}
 
 \subsection{Persistência de Dados}
 
-Um aspecto importante da arquitetura do PocketBudget é a diferenciação entre os mecanismos de persistência local utilizados na aplicação web e na aplicação mobile. Embora ambos cumpram o mesmo papel conceitual -- armazenar dados localmente, sem depender de um servidor remoto --, tratam-se de tecnologias distintas, vinculadas a plataformas distintas.
+O PocketBudget utiliza persistência local em ambas as plataformas.
 
-O LocalStorage é uma API disponibilizada pelos navegadores web, que permite armazenar pares de chave-valor de forma persistente no contexto de uma origem (\textit{origin}) específica. Não se trata de uma solução de armazenamento universal para aplicações mobile; dispositivos móveis dispõem de mecanismos próprios de persistência local, mais adequados ao ambiente de execução nativo ou ao framework utilizado.
+Na aplicação web, os dados são armazenados utilizando o \textit{LocalStorage}, mecanismo disponibilizado pelo navegador para armazenamento persistente de informações no contexto da aplicação.
 
-A Tabela~\ref{tab:storage-comparison} apresenta uma comparação conceitual entre os dois mecanismos.
+Na aplicação mobile, os dados são armazenados utilizando \textit{SharedPreferences}. Como as transações são representadas por objetos, a biblioteca Gson é utilizada para converter os dados entre objetos Kotlin e uma representação textual armazenável.
+
+A Tabela~\ref{tab:storage-comparison} apresenta uma comparação entre os mecanismos utilizados.
 
 \begin{table}[H]
     \centering
-    \caption{Comparação entre LocalStorage e armazenamento local mobile}
+    \caption{Comparação dos mecanismos de persistência}
     \label{tab:storage-comparison}
     \begin{tabular}{lll}
         \toprule
-        \textbf{Característica} & \textbf{LocalStorage} & \textbf{Mobile Storage} \\
+        \textbf{Característica} & \textbf{Web} & \textbf{Mobile} \\
         \midrule
-        Plataforma          & Navegador web        & Dispositivo móvel \\
-        Finalidade          & Persistência local   & Persistência local \\
-        Requer rede         & Não                   & Não \\
-        Requer backend      & Não                   & Não \\
-        Escopo dos dados    & Navegador/origem      & Aplicação/dispositivo \\
+        Plataforma & Navegador & Android \\
+        Tecnologia & LocalStorage & SharedPreferences \\
+        Serialização & JSON & Gson \\
+        Requer internet & Não & Não \\
+        Requer backend & Não & Não \\
+        Armazenamento local & Sim & Sim \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -235,7 +288,9 @@ A Tabela~\ref{tab:storage-comparison} apresenta uma comparação conceitual entr
 % ------------------------------------------------------------------
 \section{Modelo de Dados}
 
-O modelo de dados central do PocketBudget é representado pela entidade \texttt{Transaction} (transação), cuja estrutura conceitual é apresentada a seguir:
+O modelo de dados central do PocketBudget é representado pela entidade \texttt{Transaction}, responsável por armazenar as informações de cada transação financeira.
+
+A estrutura conceitual é apresentada a seguir:
 
 \begin{verbatim}
 Transaction
@@ -247,18 +302,23 @@ Transaction
 - date
 \end{verbatim}
 
-Cada campo do modelo possui a seguinte finalidade:
+Cada campo possui a seguinte finalidade:
 
 \begin{itemize}
-    \item \textbf{id}: identificador único da transação, utilizado para diferenciar e localizar registros individuais, especialmente durante operações de exclusão.
-    \item \textbf{description}: texto informado pelo usuário, descrevendo a natureza da transação (por exemplo, ``Salário'' ou ``Supermercado'').
-    \item \textbf{amount}: valor numérico da transação, sempre representado como um número positivo, independentemente de a transação ser uma receita ou uma despesa.
-    \item \textbf{category}: categoria à qual a transação pertence, utilizada para fins de organização e filtragem.
-    \item \textbf{type}: tipo da transação, indicando se representa uma receita ou uma despesa.
-    \item \textbf{date}: data em que a transação foi registrada.
+    \item \textbf{id}: identificador da transação, utilizado para diferenciar cada registro.
+    
+    \item \textbf{description}: descrição informada pelo usuário para identificar a transação.
+    
+    \item \textbf{amount}: valor monetário da transação.
+    
+    \item \textbf{category}: categoria associada à transação.
+    
+    \item \textbf{type}: identifica se a transação representa uma receita ou uma despesa.
+    
+    \item \textbf{date}: data associada ao registro da transação.
 \end{itemize}
 
-As categorias atualmente previstas para classificação das transações são:
+As categorias utilizadas pelo sistema são:
 
 \begin{itemize}
     \item Food (Alimentação)
@@ -268,7 +328,7 @@ As categorias atualmente previstas para classificação das transações são:
     \item Others (Outros)
 \end{itemize}
 
-Os tipos de transação previstos são:
+Os tipos de transação utilizados são:
 
 \begin{itemize}
     \item Income (Receita)
@@ -283,15 +343,24 @@ Os tipos de transação previstos são:
 As principais regras de negócio que orientam o comportamento do PocketBudget são:
 
 \begin{itemize}
-    \item RN01 -- O valor (\textit{amount}) de uma transação deve ser sempre positivo, independentemente de a transação representar uma receita ou uma despesa.
-    \item RN02 -- Toda transação deve possuir uma descrição não vazia.
-    \item RN03 -- Toda transação deve possuir uma categoria associada.
-    \item RN04 -- Toda transação deve possuir um tipo associado (receita ou despesa).
-    \item RN05 -- O total de receitas e o total de despesas devem ser calculados separadamente, considerando apenas as transações do respectivo tipo.
-    \item RN06 -- O saldo líquido deve ser calculado como a diferença entre o total de receitas e o total de despesas.
+    \item RN01 -- O valor de uma transação deve ser positivo.
+    
+    \item RN02 -- Toda transação deve possuir uma descrição.
+    
+    \item RN03 -- Toda transação deve possuir uma categoria.
+    
+    \item RN04 -- Toda transação deve possuir um tipo, podendo ser receita ou despesa.
+    
+    \item RN05 -- O total de receitas deve considerar somente transações classificadas como receita.
+    
+    \item RN06 -- O total de despesas deve considerar somente transações classificadas como despesa.
+    
+    \item RN07 -- O saldo líquido deve ser obtido pela diferença entre o total de receitas e o total de despesas.
+    
+    \item RN08 -- A exclusão de uma transação deve atualizar os valores apresentados no resumo financeiro.
 \end{itemize}
 
-O cálculo do saldo líquido é formalmente expresso pela Equação~\eqref{eq:saldo-simples}:
+O cálculo do saldo líquido é representado pela Equação~\eqref{eq:saldo-simples}:
 
 \begin{equation}
     B = I - E
@@ -301,19 +370,19 @@ O cálculo do saldo líquido é formalmente expresso pela Equação~\eqref{eq:sa
 Onde:
 
 \begin{itemize}
-    \item $B$ representa o saldo líquido (\textit{net balance});
-    \item $I$ representa o total de receitas (\textit{total income});
-    \item $E$ representa o total de despesas (\textit{total expenses}).
+    \item $B$ representa o saldo líquido;
+    \item $I$ representa o total de receitas;
+    \item $E$ representa o total de despesas.
 \end{itemize}
 
-De forma expandida, considerando o conjunto de transações registradas, o saldo líquido pode ser expresso pela Equação~\eqref{eq:saldo-expandido}:
+Considerando o conjunto de transações registradas, o saldo pode ser representado por:
 
 \begin{equation}
     B = \sum_{i=1}^{n} I_i - \sum_{j=1}^{m} E_j
     \label{eq:saldo-expandido}
 \end{equation}
 
-Nessa formulação, $I_i$ representa o valor da $i$-ésima transação de receita, dentre um total de $n$ transações de receita registradas, enquanto $E_j$ representa o valor da $j$-ésima transação de despesa, dentre um total de $m$ transações de despesa registradas. O saldo líquido $B$ é, portanto, obtido pela soma de todos os valores de receita, subtraída da soma de todos os valores de despesa, refletindo o resultado financeiro líquido do usuário considerando o conjunto completo de transações registradas até o momento.
+Nessa expressão, $I_i$ representa cada transação de receita e $E_j$ representa cada transação de despesa. Dessa forma, o saldo líquido corresponde à soma das receitas subtraída da soma das despesas.
 
 % ------------------------------------------------------------------
 % 10. INTERFACE E EXPERIÊNCIA DO USUÁRIO
@@ -322,40 +391,56 @@ Nessa formulação, $I_i$ representa o valor da $i$-ésima transação de receit
 
 \subsection{Interface Web}
 
-A interface web do PocketBudget está organizada em torno de um layout do tipo \textit{dashboard}, contemplando os seguintes elementos:
+A aplicação web apresenta uma interface organizada em formato de dashboard, permitindo que as principais informações financeiras sejam visualizadas em uma única página.
+
+Entre os principais elementos da interface estão:
 
 \begin{itemize}
-    \item \textbf{Cartões de resumo}: exibição do saldo líquido, total de receitas e total de despesas, atualizados automaticamente conforme novas transações são registradas ou removidas.
-    \item \textbf{Formulário de transação}: formulário para registro de novas transações, contendo campos de descrição, valor, categoria e tipo, com validação de preenchimento.
-    \item \textbf{Lista de transações}: listagem das transações registradas, exibindo descrição, categoria, tipo, valor, data e opção de exclusão.
-    \item \textbf{Busca}: campo de busca textual que permite localizar transações a partir de sua descrição.
-    \item \textbf{Filtro por categoria}: seletor que permite restringir a listagem de transações a uma categoria específica.
-    \item \textbf{Layout responsivo}: adaptação do layout para diferentes tamanhos de tela, com disposição horizontal de elementos em telas maiores e disposição vertical em telas menores.
+    \item \textbf{Cartões de resumo}: exibem o saldo líquido, o total de receitas e o total de despesas.
+    
+    \item \textbf{Formulário de transação}: permite cadastrar novas receitas ou despesas.
+    
+    \item \textbf{Lista de transações}: apresenta as transações registradas pelo usuário.
+    
+    \item \textbf{Busca}: permite localizar transações utilizando sua descrição.
+    
+    \item \textbf{Filtro por categoria}: permite restringir a visualização das transações a uma categoria específica.
+    
+    \item \textbf{Layout responsivo}: adapta a organização dos elementos para diferentes tamanhos de tela.
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    % Inserir wireframe aqui
-    \caption{Protótipo da interface web do PocketBudget.}
-    \label{fig:web-wireframe}
+    % Inserir captura da interface web aqui
+    \caption{Interface web do PocketBudget.}
+    \label{fig:web-interface}
 \end{figure}
 
 \subsection{Interface Mobile}
 
-A interface mobile do PocketBudget contempla funcionalidades equivalentes às da versão web, adaptadas às particularidades de dispositivos móveis:
+A aplicação mobile possui as mesmas funcionalidades principais da aplicação web, adaptadas ao contexto de dispositivos Android.
+
+Entre os principais elementos estão:
 
 \begin{itemize}
-    \item \textbf{Registro de transações}: formulário adaptado para telas menores, com controles de seleção adequados para entrada por toque, evitando a necessidade de digitação manual de categorias.
-    \item \textbf{Visualização de transações}: listagem otimizada para rolagem em dispositivos móveis, utilizando componentes nativos apropriados para grandes volumes de itens.
-    \item \textbf{Navegação mobile-friendly}: organização das telas de forma a minimizar a necessidade de navegação complexa, mantendo as principais funcionalidades acessíveis a partir da tela inicial.
-    \item \textbf{Interface orientada a toque}: dimensionamento adequado de botões e áreas de toque, seguindo boas práticas de usabilidade mobile.
+    \item \textbf{Resumo financeiro}: apresentação dos totais de receitas, despesas e saldo.
+    
+    \item \textbf{Formulário de transação}: permite cadastrar receitas e despesas por meio de controles adequados à interação por toque.
+    
+    \item \textbf{Lista de transações}: apresenta os registros armazenados no dispositivo.
+    
+    \item \textbf{Busca}: permite localizar transações por descrição.
+    
+    \item \textbf{Filtro por categoria}: permite selecionar categorias específicas para visualização.
+    
+    \item \textbf{Interface nativa}: utiliza componentes do Jetpack Compose e Material 3 para construção da interface Android.
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    % Inserir wireframe aqui
-    \caption{Protótipo da interface mobile do PocketBudget.}
-    \label{fig:mobile-wireframe}
+    % Inserir captura da interface mobile aqui
+    \caption{Interface mobile do PocketBudget.}
+    \label{fig:mobile-interface}
 \end{figure}
 
 % ------------------------------------------------------------------
@@ -363,95 +448,140 @@ A interface mobile do PocketBudget contempla funcionalidades equivalentes às da
 % ------------------------------------------------------------------
 \section{Organização do Projeto}
 
-A estrutura planejada do repositório do projeto está organizada da seguinte forma:
+O repositório do PocketBudget utiliza uma estrutura de monorepo, mantendo as aplicações web, mobile e a documentação acadêmica em um único repositório.
+
+A estrutura principal é organizada da seguinte forma:
 
 \begin{verbatim}
 PocketBudget/
-├── web/
-├── mobile/
+├── pocketbudget-web/
+├── pocketbudget-mobile/
 ├── docs/
 └── README.md
 \end{verbatim}
 
+Os diretórios possuem as seguintes responsabilidades:
+
 \begin{itemize}
-    \item \textbf{web/}: diretório contendo o código-fonte da aplicação web, desenvolvida com React, Vite e Tailwind CSS.
-    \item \textbf{mobile/}: diretório contendo o código-fonte da aplicação mobile, desenvolvida com React Native.
-    \item \textbf{docs/}: diretório destinado à documentação técnica e acadêmica do projeto, incluindo este documento e materiais complementares.
-    \item \textbf{README.md}: arquivo de descrição geral do projeto, contendo instruções de instalação, execução e informações introdutórias sobre o PocketBudget.
+    \item \textbf{pocketbudget-web/}: contém o código-fonte da aplicação web desenvolvida com Angular.
+    
+    \item \textbf{pocketbudget-mobile/}: contém o código-fonte da aplicação mobile nativa desenvolvida com Kotlin e Jetpack Compose.
+    
+    \item \textbf{docs/}: contém a documentação acadêmica e técnica do projeto.
+    
+    \item \textbf{README.md}: apresenta informações gerais do projeto, tecnologias utilizadas e instruções para execução das aplicações.
 \end{itemize}
 
-Essa organização busca manter uma separação clara entre as diferentes frentes do projeto, facilitando a navegação, a manutenção e a colaboração entre os integrantes da equipe.
+A separação das aplicações em diretórios próprios permite que cada plataforma mantenha sua estrutura e ferramentas específicas, enquanto o repositório central facilita o gerenciamento e a colaboração entre os integrantes da equipe.
 
 % ------------------------------------------------------------------
 % 12. TECNOLOGIAS
 % ------------------------------------------------------------------
 \section{Tecnologias}
 
-A Tabela~\ref{tab:tecnologias} apresenta as tecnologias utilizadas ou planejadas para o desenvolvimento do PocketBudget, bem como seu respectivo papel no projeto.
+A Tabela~\ref{tab:tecnologias} apresenta as principais tecnologias utilizadas no desenvolvimento do PocketBudget.
 
 \begin{table}[H]
     \centering
     \caption{Tecnologias utilizadas no desenvolvimento do PocketBudget}
     \label{tab:tecnologias}
-    \begin{tabular}{p{2.8cm}p{9cm}}
+    \begin{tabular}{p{3.2cm}p{8.6cm}}
         \toprule
         \textbf{Tecnologia} & \textbf{Papel no projeto} \\
         \midrule
-        React & Biblioteca utilizada na construção da interface de usuário da aplicação web, por meio de componentes funcionais. \\
-        Vite & Ferramenta de build e servidor de desenvolvimento da aplicação web. \\
-        JavaScript & Linguagem de programação utilizada em toda a lógica das aplicações web e mobile. \\
-        Tailwind CSS & Framework de utilitários CSS utilizado na estilização da interface web. \\
-        React Native & Framework planejado para o desenvolvimento da interface mobile do PocketBudget. \\
-        LocalStorage & Mecanismo do navegador utilizado para persistência local de dados na aplicação web. \\
-        Git & Sistema de controle de versão utilizado para gerenciar o histórico de alterações do código-fonte. \\
-        GitHub & Plataforma utilizada para hospedagem do repositório remoto e colaboração entre os integrantes da equipe. \\
-        LaTeX & Sistema de preparação de documentos utilizado na elaboração da documentação técnica e acadêmica do projeto. \\
+        Angular & Framework utilizado na construção da aplicação web. \\
+        
+        TypeScript & Linguagem utilizada na implementação da lógica da aplicação web. \\
+        
+        HTML & Linguagem utilizada para estruturação das interfaces web. \\
+        
+        SCSS & Tecnologia utilizada para estilização da aplicação web. \\
+        
+        LocalStorage & Mecanismo utilizado para persistência local das transações na aplicação web. \\
+        
+        Kotlin & Linguagem utilizada no desenvolvimento da aplicação Android. \\
+        
+        Jetpack Compose & Toolkit utilizado para construção da interface mobile. \\
+        
+        Material 3 & Sistema de componentes e padrões visuais utilizado na interface mobile. \\
+        
+        ViewModel & Componente utilizado para gerenciamento do estado da aplicação mobile. \\
+        
+        SharedPreferences & Mecanismo utilizado para armazenamento local na aplicação Android. \\
+        
+        Gson & Biblioteca utilizada para serialização e desserialização dos dados mobile. \\
+        
+        Git & Sistema de controle de versão utilizado para gerenciamento do código-fonte. \\
+        
+        GitHub & Plataforma utilizada para hospedagem do repositório e colaboração da equipe. \\
+        
+        LaTeX & Sistema utilizado para elaboração da documentação acadêmica do projeto. \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-%
 % ------------------------------------------------------------------
 % 13. CONTROLE DE VERSÃO
 % ------------------------------------------------------------------
 \section{Controle de Versão}
 
-O controle de versão do projeto PocketBudget é realizado por meio do Git, com hospedagem do repositório remoto na plataforma GitHub. A adoção dessas ferramentas justifica-se pela necessidade de manter um histórico organizado das alterações realizadas ao longo do desenvolvimento, bem como por viabilizar a colaboração simultânea entre os integrantes da equipe.
+O controle de versão do PocketBudget é realizado por meio do Git, enquanto o GitHub é utilizado para hospedagem do repositório remoto e colaboração entre os integrantes da equipe.
 
-A organização do repositório contempla o uso de \textit{branches} para o desenvolvimento de funcionalidades específicas, permitindo que alterações sejam realizadas de forma isolada antes de serem integradas à branch principal do projeto. Cada alteração é registrada por meio de \textit{commits}, que documentam de forma incremental a evolução do código-fonte e da documentação.
+O uso do Git permite manter um histórico das alterações realizadas no código-fonte e na documentação. Cada alteração pode ser registrada por meio de \textit{commits}, permitindo acompanhar a evolução do projeto durante seu desenvolvimento.
 
-O uso do GitHub também favorece a colaboração entre os membros da equipe, possibilitando revisão de código, discussão sobre alterações propostas e rastreabilidade das contribuições individuais ao longo do projeto. Adicionalmente, o histórico de versões mantido pelo Git contribui para a documentação técnica do projeto, uma vez que registra a evolução da arquitetura e das decisões de implementação ao longo do tempo.
+O repositório também permite a utilização de \textit{branches} para desenvolvimento de funcionalidades específicas, possibilitando que alterações sejam realizadas de forma isolada antes de sua integração à branch principal.
 
-Não são apresentados, neste documento, commits ou históricos específicos já existentes, uma vez que este material corresponde a uma proposta inicial do projeto.
+O GitHub também facilita a colaboração entre os integrantes da equipe por meio do compartilhamento do código-fonte, gerenciamento de colaboradores e acompanhamento das alterações realizadas no projeto.
 
 % ------------------------------------------------------------------
 % 14. TESTES
 % ------------------------------------------------------------------
 \section{Testes}
 
-A estratégia de testes planejada para o PocketBudget contempla as seguintes frentes, a serem executadas ao longo e ao final do desenvolvimento:
+Os testes do PocketBudget são direcionados principalmente à verificação das funcionalidades implementadas e das regras de negócio definidas para a aplicação.
+
+As principais verificações realizadas ou previstas incluem:
 
 \begin{itemize}
-    \item \textbf{Testes funcionais}: verificação de que as funcionalidades de registro, exclusão, busca, filtragem e cálculo de totais operam conforme especificado nos requisitos funcionais.
-    \item \textbf{Validação de formulários}: verificação de que os formulários de registro de transações impedem o envio de dados inválidos, como descrições vazias, valores não positivos ou ausência de categoria e tipo.
-    \item \textbf{Testes de persistência local}: verificação de que os dados registrados permanecem disponíveis após o fechamento e reabertura da aplicação, tanto na versão web (LocalStorage) quanto na versão mobile.
-    \item \textbf{Testes de responsividade}: verificação do comportamento da interface web em diferentes tamanhos de tela e resoluções.
-    \item \textbf{Testes da interface mobile}: verificação do comportamento da interface mobile em diferentes dispositivos e tamanhos de tela, incluindo o comportamento de elementos como teclado virtual e áreas seguras de tela.
+    \item \textbf{Registro de transações}: verificar se receitas e despesas podem ser cadastradas corretamente.
+    
+    \item \textbf{Exclusão de transações}: verificar se uma transação pode ser removida e se os valores financeiros são atualizados corretamente.
+    
+    \item \textbf{Cálculo de totais}: verificar se os valores de receitas, despesas e saldo são calculados corretamente.
+    
+    \item \textbf{Busca}: verificar se transações podem ser localizadas por meio de sua descrição.
+    
+    \item \textbf{Filtragem}: verificar se a seleção de uma categoria altera corretamente a lista apresentada.
+    
+    \item \textbf{Validação}: verificar se dados obrigatórios são exigidos durante o cadastro de uma transação.
+    
+    \item \textbf{Persistência web}: verificar se os dados continuam disponíveis após o fechamento e reabertura da aplicação web.
+    
+    \item \textbf{Persistência mobile}: verificar se os dados continuam disponíveis após o fechamento e reabertura da aplicação Android.
+    
+    \item \textbf{Responsividade}: verificar o comportamento da interface web em diferentes tamanhos de tela.
+    
+    \item \textbf{Interface mobile}: verificar o comportamento dos componentes da aplicação Android em diferentes tamanhos de tela.
 \end{itemize}
 
-Ressalta-se que, no estágio atual do projeto, as atividades acima descritas correspondem a atividades planejadas, a serem conduzidas conforme o desenvolvimento avança.
+A realização dessas verificações busca garantir que as principais funcionalidades do sistema estejam de acordo com os requisitos definidos para o projeto.
 
 % ------------------------------------------------------------------
-% 17. CONCLUSÃO
+% 15. CONCLUSÃO
 % ------------------------------------------------------------------
 \section{Conclusão}
 
-O presente documento apresentou a proposta do projeto PocketBudget, uma aplicação de gestão financeira pessoal composta por interfaces web e mobile, cujo propósito é facilitar o registro e o acompanhamento de receitas e despesas por parte do usuário. Buscou-se demonstrar como a ausência de ferramentas dedicadas e de fácil utilização pode dificultar a manutenção de hábitos consistentes de organização financeira, e como o PocketBudget se propõe a reduzir esse atrito por meio de uma interface simples, com cálculo automático de totais e mecanismos de busca e filtragem.
+O presente documento apresentou a proposta e a documentação técnica do PocketBudget, uma aplicação de gestão financeira pessoal composta por uma aplicação web e uma aplicação mobile nativa para Android.
 
-Do ponto de vista técnico, espera-se que o desenvolvimento do projeto contribua para a aplicação prática de conceitos de arquitetura frontend baseada em componentes, persistência local de dados, desenvolvimento responsivo e organização de projeto orientada a boas práticas de engenharia de software, incluindo o uso de controle de versão e documentação técnica formal.
+O sistema foi desenvolvido com foco na simplicidade de utilização e na disponibilização das funcionalidades essenciais para o controle de receitas e despesas. Entre essas funcionalidades estão o registro e exclusão de transações, cálculo automático de totais, busca por descrição, filtragem por categoria e persistência local dos dados.
 
-A existência de interfaces web e mobile reforça o caráter prático do projeto, uma vez que contempla diferentes contextos de uso do usuário final, sem introduzir complexidade desnecessária, como backend, autenticação ou bancos de dados remotos, mantendo o escopo do projeto compatível com os objetivos de um trabalho acadêmico de graduação.
+Do ponto de vista técnico, a aplicação web utiliza Angular, TypeScript, HTML, SCSS e LocalStorage, enquanto a aplicação mobile utiliza Kotlin, Jetpack Compose, Material 3, ViewModel, SharedPreferences e Gson. A utilização de mecanismos de persistência local permite que as funcionalidades principais sejam executadas sem dependência de backend, autenticação ou banco de dados remoto.
 
-Por fim, ressalta-se que este documento corresponde a uma proposta inicial e a uma documentação técnica preliminar do projeto. A aplicação completa, em suas versões web e mobile, encontra-se em desenvolvimento, e os resultados finais, incluindo eventuais ajustes de escopo, arquitetura ou funcionalidades, serão apresentados em documentação complementar ao término do desenvolvimento.
+O desenvolvimento das duas aplicações também possibilitou a aplicação prática de conceitos relacionados à componentização, organização de código, gerenciamento de estado, persistência de dados, desenvolvimento responsivo, desenvolvimento mobile nativo, controle de versão e documentação técnica.
+
+A organização do projeto em um repositório único facilita a colaboração entre os integrantes da equipe e mantém as diferentes partes da aplicação separadas de acordo com suas respectivas plataformas.
+
+Por fim, o PocketBudget atende ao escopo definido para o projeto acadêmico ao apresentar uma solução funcional para o registro e acompanhamento de transações financeiras, utilizando tecnologias modernas de desenvolvimento web e mobile e mantendo uma arquitetura compatível com os objetivos e limitações estabelecidos para o trabalho.
 
 \end{document}
+```
