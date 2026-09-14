@@ -1,0 +1,22 @@
+<div class="summary-grid">
+  <div class="card card--balance">
+    <p class="card-label card-label--balance">Saldo líquido</p>
+    <p class="card-value" [class.card-value--negative]="netBalance() < 0">
+      {{ formatCurrency(netBalance()) }}
+    </p>
+  </div>
+
+  <div class="card card--income">
+    <p class="card-label card-label--income">Receita total</p>
+    <p class="card-value card-value--income">
+      {{ formatCurrency(totalIncome()) }}
+    </p>
+  </div>
+
+  <div class="card card--expense">
+    <p class="card-label card-label--expense">Despesas totais</p>
+    <p class="card-value card-value--expense">
+      {{ formatCurrency(totalExpenses()) }}
+    </p>
+  </div>
+</div>

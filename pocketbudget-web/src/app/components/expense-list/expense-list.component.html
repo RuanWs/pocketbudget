@@ -1,0 +1,50 @@
+<div class="list-card">
+    <div class="list-header">
+        <h2 class="list-title">Transações</h2>
+
+        <div class="list-controls">
+            <input
+                    type="text"
+                    class="list-input"
+                    [(ngModel)]="searchTerm"
+                    placeholder="Pesquisar por descrição"
+            />
+
+            <select class="list-input" [(ngModel)]="categoryFilter">
+                <option value="">Todas as categorias</option>
+                <option *ngFor="let c of categories" [value]="c.value">{{ c.label }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="list-body">
+        <div class="empty-state" *ngIf="filteredTransactions.length === 0">
+            <p>{{ emptyMessage }}</p>
+        </div>
+
+        <ul class="transaction-list" *ngIf="filteredTransactions.length > 0">
+            <li class="transaction-row" *ngFor="let t of filteredTransactions">
+                <div class="transaction-info">
+                    <p class="transaction-description">{{ t.description }}</p>
+                    <p class="transaction-meta">
+                        {{ getCategoryLabel(t.category) }} · {{ formatDate(t.date) }}
+                    </p>
+                </div>
+
+                <div class="transaction-actions">
+          <span
+                  class="transaction-amount"
+                  [class.transaction-amount--income]="t.type === 'income'"
+                  [class.transaction-amount--expense]="t.type === 'expense'"
+          >
+            {{ t.type === 'income' ? '+' : '-' }}{{ formatCurrency(t.amount) }}
+          </span>
+
+                    <button type="button" class="delete-button" (click)="onDelete(t.id)">
+                        Excluir
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

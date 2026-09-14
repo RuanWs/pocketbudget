@@ -1,0 +1,142 @@
+.list-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid var(--color-slate-200);
+  padding: 1.25rem;
+}
+
+.list-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.list-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-slate-900);
+  margin: 0;
+}
+
+.list-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.list-input {
+  border: 1px solid var(--color-slate-300);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-slate-900);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-violet-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  }
+}
+
+.empty-state {
+  border: 1px dashed var(--color-slate-300);
+  border-radius: 0.75rem;
+  padding: 2.5rem 1rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-slate-500);
+  }
+}
+
+.transaction-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transaction-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-slate-200);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-description {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-slate-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-meta {
+  margin: 0.125rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-slate-500);
+}
+
+.transaction-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.transaction-amount {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.transaction-amount--income {
+  color: var(--color-emerald-600);
+}
+.transaction-amount--expense {
+  color: var(--color-rose-600);
+}
+
+.delete-button {
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.5rem;
+  background: #ffffff;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-slate-500);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    border-color: #fda4af;
+    color: var(--color-rose-600);
+  }
+}

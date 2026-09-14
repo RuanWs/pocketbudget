@@ -1,0 +1,51 @@
+<form class="form-card" (ngSubmit)="onSubmit()" novalidate>
+  <h2 class="form-title">Adicionar transação</h2>
+
+  <div class="form-field">
+    <label for="description" class="form-label">Descrição</label>
+    <input
+      id="description"
+      type="text"
+      class="form-input"
+      [(ngModel)]="description"
+      name="description"
+      placeholder="Compras, salário, aluguel..."
+    />
+    <p class="form-error" *ngIf="errors.description">{{ errors.description }}</p>
+  </div>
+
+  <div class="form-field">
+    <label for="amount" class="form-label">Valor</label>
+    <input
+      id="amount"
+      type="number"
+      step="0.01"
+      class="form-input"
+      [(ngModel)]="amount"
+      name="amount"
+      placeholder="0,00"
+    />
+    <p class="form-error" *ngIf="errors.amount">{{ errors.amount }}</p>
+  </div>
+
+  <div class="form-field">
+    <label for="category" class="form-label">Categoria</label>
+    <select id="category" class="form-input" [(ngModel)]="category" name="category">
+      <option value="">Selecione uma categoria</option>
+      <option *ngFor="let c of categories" [value]="c.value">{{ c.label }}</option>
+    </select>
+    <p class="form-error" *ngIf="errors.category">{{ errors.category }}</p>
+  </div>
+
+  <div class="form-field">
+    <label for="type" class="form-label">Tipo</label>
+    <select id="type" class="form-input" [(ngModel)]="type" name="type">
+      <option value="">Selecione um tipo</option>
+      <option value="income">Receita</option>
+      <option value="expense">Despesa</option>
+    </select>
+    <p class="form-error" *ngIf="errors.type">{{ errors.type }}</p>
+  </div>
+
+  <button type="submit" class="submit-button">Adicionar transação</button>
+</form>
