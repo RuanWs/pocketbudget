@@ -29,14 +29,14 @@ Este projeto foi desenvolvido como parte da disciplina de **Frameworks Front-End
 
 | Nome | Matrícula |
 | :--- | :--- |
-| **[Nome do Integrante 1]** | [Matrícula] |
-| **[Nome do Integrante 2]** | [Matrícula] |
-| **[Nome do Integrante 3]** | [Matrícula] |
-| **[Nome do Integrante 4]** | [Matrícula] |
-| **[Nome do Integrante 5]** | [Matrícula] |
-| **[Nome do Integrante 6]** | [Matrícula] |
-| **[Nome do Integrante 7]** | [Matrícula] |
-| **[Nome do Integrante 8]** | [Matrícula] |
+| Álvaro Felipe Farias Pimentel Filho
+| *Everton Hasabias Furtunato Celestino 
+| *Guilherme Virgílio de Moura Alves 
+| *Matheus Vinícius Almeida Nunes 
+| Mayck Mitchell Cavalcante da Silva 
+| Ruan Welisson Nazario Teles 
+| Vinicius da Silva 
+| 
 
 ---
 ---
