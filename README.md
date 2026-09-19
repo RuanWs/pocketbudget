@@ -33,7 +33,6 @@ Este projeto foi desenvolvido como parte da disciplina de **Frameworks Front-End
 | Carlos Henrique Melo |
 | Everton Hasabias Furtunato Celestino |
 | Guilherme Virgílio de Moura Alves |
-| Matheus Vinícius Almeida Nunes |
 | Mayck Mitchell Cavalcante da Silva |
 | Ruan Welisson Nazario Teles |
 | Vinicius da Silva |
