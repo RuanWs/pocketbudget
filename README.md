@@ -360,3 +360,11 @@ A arquitetura adotada pelo PocketBudget oferece algumas vantagens:
 * GitHub
 
 ---
+
+### Fotos da aplicação
+
+## Versão Web: 
+![imagem1](assets/image1.png)
+
+## Versão Mobile
+![imagem2](assets/image2.png)
